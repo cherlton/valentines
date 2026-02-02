@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #050505;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  color: white;
+}
+
+/* Cinematic Background */
+.cinematic-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #111 0%, #050505 100%);
+  z-index: -1;
+}
+
+.dust-particle {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+/* Header - Ultra Minimal */
+.minimal-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.heart-logo {
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
+}
+
+/* Gallery Layout */
+.gallery-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 2000px;
+  overflow: hidden;
+}
+
+.ribbon-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 10vw;
+}
+
+/* Image Card - Premium Styling */
+.image-card {
+  position: relative;
+  width: 350px;
+  height: 500px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+  background: #111;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.image-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Light Leak Effect */
+.light-leak {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 40%,
+      rgba(255, 255, 255, 0.02) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Loading heart */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .image-card {
+    width: 250px;
+    height: 380px;
+  }
+}
